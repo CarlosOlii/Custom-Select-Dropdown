@@ -1,0 +1,85 @@
+html {
+  --custom-select-size-border: 1px;
+  --custom-select-size-border-focus: 1px;
+  --custom-select-size-arrow: 4px;
+
+  --custom-select-color-arrow: #3b3c47;
+  --custom-select-color-border-option: black;
+  --custom-select-color-option-hover: hsl(200, 100%, 70%);
+  --custom-select-color-option-selected: hsl(200, 100%, 50%);
+
+  --custom-select-width: 200px;
+  --custom-select-max-height: 250px;
+  --custom-select-padding: .25rem .5rem;
+
+  --custom-select-options-z-index: 1;
+  --custom-select-options-backgroud-color: white;
+}
+
+.custom-select-container,
+.custom-select-value,
+.custom-select-options,
+.custom-select-option {
+  box-sizing: border-box;
+}
+
+.custom-select-container {
+  display: inline-block;
+  position: relative;
+}
+
+.custom-select-value {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: var(--custom-select-width);
+  border: var(--custom-select-size-border) solid var(--custom-select-color-border-option);
+  padding: var(--custom-select-padding);
+  cursor: pointer;
+  user-select: none;
+}
+
+.custom-select-container:focus > .custom-select-value {
+  outline-width: var(--custom-select-size-border-focus);
+  outline-style: solid;
+}
+
+.custom-select-value::after {
+  content: '';
+  border-left: var(--custom-select-size-arrow) solid transparent;
+  border-right: var(--custom-select-size-arrow) solid transparent;
+  border-top: var(--custom-select-size-arrow) solid var(--custom-select-color-arrow);
+}
+
+.custom-select-options {
+  display: none;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  border: var(--custom-select-size-border-focus) solid var(--custom-select-color-border-option);
+  border-top: none;
+  width: 100%;
+  max-height: var(--custom-select-max-height);
+  overflow-y: auto;
+  outline-width: var(--custom-select-size-border-focus);
+  outline-style: solid;
+}
+
+.custom-select-options.show {
+  display: block;
+  z-index: var(--custom-select-options-z-index);
+  background-color: var(--custom-select-options-backgroud-color);
+}
+
+.custom-select-option {
+  padding: var(--custom-select-padding);
+  cursor: pointer;
+}
+
+.custom-select-option:hover {
+  background-color: var(--custom-select-color-option-hover);
+}
+
+.custom-select-option.selected {
+  background-color: var(--custom-select-color-option-selected);
+}
