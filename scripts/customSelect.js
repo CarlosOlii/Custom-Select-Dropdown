@@ -19,7 +19,7 @@ export default class CustomSelect {
     }
 
     get selectedOptionIndex() {
-        return this.options.indexOf(this.selectedOption);
+        return this.options.findIndex(option => option.selected);
     }
 
     selectValue(value) {
